@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_04_13_002129) do
     t.integer "special_defense"
     t.integer "speed"
     t.integer "generation"
-    t.boolean "legendary"
+    t.boolean "legendary", default: false
   end
 
 end

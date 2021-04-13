@@ -13,7 +13,7 @@ class CreatePokemons < ActiveRecord::Migration[6.1]
       t.integer :special_defense
       t.integer :speed
       t.integer :generation
-      t.boolean :legendary
+      t.boolean :legendary, default: false
     end
   end
 end
