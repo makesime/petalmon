@@ -1,3 +1,4 @@
+# The Pokemon Controller is responsible for CRUD actions
 class PokemonsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -8,6 +9,8 @@ class PokemonsController < ApplicationController
     render json: pokemon, status: :ok
   end
 
+  # Returns a paginated pokemon list
+  # default_per_page = 25
   def index
     pokemons = Pokemon.order(:id).page(params[:page]).per(params[:per_page])
 
