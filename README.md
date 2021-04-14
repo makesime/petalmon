@@ -24,9 +24,9 @@ rspec spec
 ```
 
 ## API
-CRUD action are available in [pokemons_controller.rb](pokemons_controller.rb)
+CRUD action are available in [pokemons_controller.rb](https://github.com/makesime/petalmon/blob/master/app/controllers/pokemons_controller.rb)
 
-### POST /pokemons
+### POST `/pokemons`
 Params must be provided in a `pokemon` JSON object.
 Accepted parameters:
 - name: mandatory
@@ -60,7 +60,7 @@ Request body example:
 }
 ```
 
-### GET /pokemons
+### GET `/pokemons`
 By default, will return the 25 first elements.
 
 Accepted parameters:
@@ -68,7 +68,7 @@ Accepted parameters:
 - per_page: optional
 
 
-### PUT /pokemons/:id
+### PUT `/pokemons/:id`
 Params must be provided in a `pokemon` JSON object.
 Accepted parameters: `[:name, :type_1, :type_2, :total, :hp, :attack, :defense, :specia_attack, :special_defense, :speed, :generation, :legendary]`
 
@@ -81,4 +81,4 @@ Request body example:
 }
 ```
 
-### DELETE /pokemons/:id
+### DELETE `/pokemons/:id`
