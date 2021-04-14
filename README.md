@@ -1,24 +1,24 @@
-# README
+# Petalmon: A Pokemon Ruby on Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic Ruby on Rails app made for PetalMD
 
-Things you may want to cover:
+## Overview
+Project is created with:
+* Ruby 3.0.0
+* Rails 6.1.3.1
+## Installation
+To install the app, you must run:
+```
+bundle install
+```
 
-* Ruby version
+To build a database seeded by [pokemon.csv](https ://gist.github.com/armgilles/194bcff35001e7eb53a2a8b441e8b2c6), simply run:
+```
+rake db:reset
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Test suite
+* Test suite is using the RSpec testing framework, to run the test suite:
+```
+rspec spec
+```
