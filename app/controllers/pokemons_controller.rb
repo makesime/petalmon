@@ -16,7 +16,12 @@ class PokemonsController < ApplicationController
   end
 
   def update
-    render json: { status: "error", code: 404 }
+    pokemon = Pokemon.find_by(id: params[:id])
+    return render json: { status: "error", code: 404 } unless pokemon
+
+    pokemon.update(pokemon_params)
+
+    render json: pokemon, status: :ok
   end
 
   def destroy

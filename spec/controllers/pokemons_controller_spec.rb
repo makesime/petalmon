@@ -58,7 +58,21 @@ describe PokemonsController do
     end
 
     context "when pokemon exists" do
+      let(:pokemon) { create :pokemon }
 
+      context "with invalid params" do
+        it { expect { put :update, params: { id: pokemon.id }, format: :json }.to raise_error(ActionController::ParameterMissing) }
+      end
+
+      context "with valid params" do
+        it "updates the pokemon" do
+          new_name = "Mowgli"
+
+          put :update, params: { id: pokemon.id, pokemon: { name: new_name } }, format: :json
+
+          expect(@response.parsed_body["name"]).to eq new_name
+        end
+      end
     end
   end
 end
