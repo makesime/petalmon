@@ -49,12 +49,7 @@ describe PokemonsController do
 
   describe "PUT update" do
     context "when pokemon doesn't exists" do
-      it "returns a not found", :aggregate_failure do
-        put :update, params: { id: 0 }, format: :json
-
-        expect(@response.parsed_body["status"]).to eq("error")
-        expect(@response.parsed_body["code"]).to eq(404)
-      end
+      it { expect { put :update, params: { id: 0 }, format: :json }.to raise_error(ActiveRecord::RecordNotFound) }
     end
 
     context "when pokemon exists" do
@@ -72,6 +67,22 @@ describe PokemonsController do
 
           expect(@response.parsed_body["name"]).to eq new_name
         end
+      end
+    end
+  end
+
+  describe "DELETE destroy" do
+    context "when pokemon doesn't exists" do
+      it { expect { delete :destroy, params: { id: 0 }, format: :json }.to raise_error(ActiveRecord::RecordNotFound) }
+    end
+
+    context "when pokemon exists" do
+      it "deletes the pokemon" do
+        pokemon = create :pokemon
+
+        delete :destroy, params: { id: pokemon.id }, format: :json
+
+        expect{ pokemon.reload }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

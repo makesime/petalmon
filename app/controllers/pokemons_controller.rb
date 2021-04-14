@@ -3,7 +3,6 @@ class PokemonsController < ApplicationController
 
   def create
     pokemon = Pokemon.new pokemon_params
-
     return render json: { status: "error", message: pokemon.errors.messages } unless pokemon.save
 
     render json: pokemon, status: :ok
@@ -16,16 +15,16 @@ class PokemonsController < ApplicationController
   end
 
   def update
-    pokemon = Pokemon.find_by(id: params[:id])
-    return render json: { status: "error", code: 404 } unless pokemon
-
+    pokemon = Pokemon.find(params[:id])
     pokemon.update(pokemon_params)
 
     render json: pokemon, status: :ok
   end
 
   def destroy
+    pokemon = Pokemon.find(params[:id])
 
+    pokemon.destroy
   end
 
   private
