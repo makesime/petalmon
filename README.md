@@ -22,3 +22,63 @@ rake db:reset
 ```
 rspec spec
 ```
+
+## API
+CRUD action are available in [pokemons_controller.rb](pokemons_controller.rb)
+
+### POST /pokemons
+Params must be provided in a `pokemon` JSON object.
+Accepted parameters:
+- name: mandatory
+- type_1: mandatory
+- type_2: optional
+- total: optional
+- hp: mandatory
+- attack: mandatory
+- defense: mandatory
+- special_attack: mandatory
+- special_defense: mandatory
+- speed: mandatory
+- generation: mandatory
+- legendary: optional
+
+Request body example:
+
+```
+{
+  "pokemon": {
+      "name": "Mowgli",
+      "type_1": "Fire",
+      "hp": 40,
+      "attack": 50,
+      "defense": 98,
+      "special_attack": 46,
+      "special_defense": 102,
+      "speed": 12,
+      "generation": 2
+  }
+}
+```
+
+### GET /pokemons
+By default, will return the 25 first elements.
+
+Accepted parameters:
+- page: optional
+- per_page: optional
+
+
+### PUT /pokemons/:id
+Params must be provided in a `pokemon` JSON object.
+Accepted parameters: `[:name, :type_1, :type_2, :total, :hp, :attack, :defense, :specia_attack, :special_defense, :speed, :generation, :legendary]`
+
+Request body example:
+```
+{
+  "pokemon": {
+      "name": "Mowgli"
+  }
+}
+```
+
+### DELETE /pokemons/:id
