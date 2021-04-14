@@ -10,14 +10,16 @@ class PokemonsController < ApplicationController
   end
 
   def index
+    pokemons = Pokemon.order(:id).page(params[:page]).per(params[:per_page])
 
+    render json: pokemons
   end
 
   def update
-
+    render json: { status: "error", code: 404 }
   end
 
-  def delete
+  def destroy
 
   end
 
