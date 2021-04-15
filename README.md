@@ -1,6 +1,6 @@
 # Petalmon: A Pokemon Ruby on Rails App
 
-This is a basic Ruby on Rails app made for PetalMD
+This is a basic Ruby on Rails app
 
 ## Overview
 Project is created with:
@@ -28,7 +28,7 @@ rspec spec
 ```
 
 ## API
-CRUD action are available in [pokemons_controller.rb](https://github.com/makesime/petalmon/blob/master/app/controllers/pokemons_controller.rb)
+CRUD actions are available in [pokemons_controller.rb](https://github.com/makesime/petalmon/blob/master/app/controllers/pokemons_controller.rb)
 
 ### POST `/pokemons`
 Params must be provided in a `pokemon` JSON object.
@@ -68,8 +68,8 @@ Request body example:
 By default, will return the 25 first elements.
 
 Accepted parameters:
-- page: optional
-- per_page: optional
+- page: optional, default: 1
+- per_page: optional, default: 25
 
 
 ### PUT `/pokemons/:id`
